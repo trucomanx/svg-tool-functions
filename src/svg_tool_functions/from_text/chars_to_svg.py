@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from svg_tool_functions.from_filepath import get_dimensions
+from svg_tool_functions.from_svgpath import get_dimensions
 
 import svgwrite
 

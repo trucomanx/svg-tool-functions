@@ -6,9 +6,9 @@ import cairosvg
 import base64
 
 
-def convert_to_eps(svg_file, output_eps_file):
+def binary_convert_to_eps(svg_file, output_eps_file):
     """
-    Converts an SVG file with referenced images (including SVGs and PNGs) to an EPS file.
+    Converts an SVG file with referenced images (including SVGs and PNGs like binary) to an EPS file.
 
     Args:
         svg_file (str): Path to the input SVG file.

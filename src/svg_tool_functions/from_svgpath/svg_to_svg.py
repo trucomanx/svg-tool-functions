@@ -8,7 +8,7 @@ def convert_to_pixels(value, unit):
     unit_conversions = {
         'px': 1,
         'in': 96,  # 1 inch = 96 pixels
-        'mm': 3.7795275591,  # 1 mm = 3.7795275591 pixels
+        'mm': 1.0,#'mm': 3.7795275591,  # 1 mm = 3.7795275591 pixels
         'cm': 37.795275591,  # 1 cm = 37.795275591 pixels
         'pt': 1.3333333333,  # 1 pt = 1.3333333333 pixels
         'pc': 16  # 1 pica = 16 pixels
@@ -42,13 +42,13 @@ def get_svg_dimensions_from_content(svg_content):
     width = svg_tree.get('width', '1px')
     height = svg_tree.get('height', '1px')
     
-    print(width,height)
+    #print(width,height)
 
     # Parse e converta largura e altura para pixels
     width_in_pixels = parse_dimension(width)
     height_in_pixels = parse_dimension(height)
     
-    print(width_in_pixels,height_in_pixels)
+    #print(width_in_pixels,height_in_pixels)
 
     return width_in_pixels, height_in_pixels
 
@@ -57,8 +57,8 @@ def get_svg_content(file_path):
     with open(file_path, 'r') as file:
         return file.read()
 
-def convert_svg_to_eps(input_svg_path, output_eps_path):
-    """Convert an SVG file to EPS, embedding SVG or PNG images."""
+def svg_to_svg(input_svg_path, output_svg_path):
+    """Convert an SVG file with embedding SVG files in a SVG file."""
     
     # Parse the SVG
     with open(input_svg_path, 'r') as svg_file:
@@ -77,8 +77,8 @@ def convert_svg_to_eps(input_svg_path, output_eps_path):
             ext = ext.lower()
 
             if ext == '.svg':
-                print("")
-                print(href)
+                #print("")
+                #print(href)
                 # Get the SVG content and embed it
                 embedded_svg_content = get_svg_content(href)
                 embedded_width, embedded_height = get_svg_dimensions_from_content(embedded_svg_content)
@@ -89,12 +89,12 @@ def convert_svg_to_eps(input_svg_path, output_eps_path):
                 y = parse_dimension(image.get('y', '0'))
                 width = parse_dimension(image.get('width'))
                 height = parse_dimension(image.get('height'))
-                print("x",x,"y",y,"width",width,"height",height)
+                #print("x",x,"y",y,"width",width,"height",height)
 
                 # Calculate scaling factors
                 scale_x = width / embedded_width
                 scale_y = height / embedded_height
-                print("scale_x",scale_x,"scale_y",scale_x)
+                #print("scale_x",scale_x,"scale_y",scale_x)
 
                 # Wrap the embedded SVG content in a <g> element with translation and scaling
                 g = etree.Element('g')
@@ -117,15 +117,7 @@ def convert_svg_to_eps(input_svg_path, output_eps_path):
     new_svg_content = etree.tostring(svg_tree, pretty_print=True).decode('utf-8')
 
     # Write the modified SVG content to a new file
-    temp_svg_path = 'temp_modified.svg'
-    with open(temp_svg_path, 'w') as temp_svg_file:
+    with open(output_svg_path, 'w') as temp_svg_file:
         temp_svg_file.write(new_svg_content)
 
-    # Now convert the modified SVG to EPS using your preferred method.
-    # Example: Using CairoSVG (you'll need to install it)
-    import cairosvg
-    cairosvg.svg2eps(url=temp_svg_path, write_to=output_eps_path)
-
-# Example usage:
-convert_svg_to_eps('output.svg', 'output.svg.eps')
 

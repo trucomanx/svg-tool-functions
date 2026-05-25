@@ -2,3 +2,7 @@
 /src/svg_tool_functions/from_filepath/__pycache__
 /src/svg_tool_functions/from_text/__pycache__
 /src/svg_tool_functions/from_svgpath/__pycache__
+/example/output.binary.eps
+/example/output.plain.svg
+/example/output.svg
+/example/output.vector.svg

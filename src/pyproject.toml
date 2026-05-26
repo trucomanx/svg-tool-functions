@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "visual_linear_systems"
-version = "0.1.0"
+version = "0.1.1"
 description = "Functions to draw linear systems in a funny way"
 readme = "README.md"
 authors = [{name = "Fernando Pujaico Rivera", email = "fernando.pujaico.rivera@gmail.com"}]

@@ -1,6 +1,6 @@
 # about.py
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __package__ = "visual_linear_systems"
 __program_name__ = "visual-linear-systems-info"
 __author__ = "Fernando Pujaico Rivera"

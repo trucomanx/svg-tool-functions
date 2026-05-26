@@ -4,7 +4,6 @@ import xml.etree.ElementTree as ET
 from copy import deepcopy
 import re
 
-
 def parse_svg_length(value):
     match = re.match(r"([0-9.+-eE]+)", value)
     if not match:

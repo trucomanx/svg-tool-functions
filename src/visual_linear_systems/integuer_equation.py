@@ -3,10 +3,6 @@
 import json
 import numpy as np
 
-
-import numpy as np
-
-
 def generate_integer_vars(
         vars_keys,
         var_min=0,

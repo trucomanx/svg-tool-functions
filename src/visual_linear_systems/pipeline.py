@@ -2,7 +2,6 @@
 
 import os
 
-
 from visual_linear_systems.integuer_equation import generate_integer_system
 from visual_linear_systems.integuer_equation import generate_integer_vars
 from visual_linear_systems.svg_grid          import build_svg_grid

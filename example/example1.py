@@ -1,7 +1,11 @@
 #!/usr/bin/python3
 
 import os
+import sys
 import json
+
+
+sys.path.append("../src")
 
 from visual_linear_systems.pipeline import generate_visual_linear_system
 
@@ -17,7 +21,7 @@ coef_min=-2
 coef_max=2
 coef_mode="expanded"
 
-svg_dir = "../svgs"
+svg_dir = "./svgs"
 dvars = {
     "x": os.path.join(svg_dir,"apple.svg"),
     "y": os.path.join(svg_dir,"orange.svg"),

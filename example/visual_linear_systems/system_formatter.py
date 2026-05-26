@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-def transfor_system_to_format_1(system, coef_mode="expanded", add_unknowns=False, unknown='?'):
+def transfor_system_to_format_1(system, coef_mode="expanded", add_unknowns=True, unknown='?'):
 
     A = system["matrix_operator"]
     r = system["vector_result"]

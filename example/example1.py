@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-from integuer_equation import generate_integer_system
-from svg_grid import build_svg_grid
-from system_formatter import transfor_system_to_format_1
+from visual_linear_systems.integuer_equation import generate_integer_system
+from visual_linear_systems.svg_grid          import build_svg_grid
+from visual_linear_systems.system_formatter  import transfor_system_to_format_1
 
 seed=2
 
@@ -35,12 +35,7 @@ res = generate_integer_system(vars_dict, -2, 2, seed=seed)
 
 seqs = transfor_system_to_format_1( res, 
                                     coef_mode="expanded", 
-                                    add_unknowns=False, 
-                                    unknown='?')
-
-#print(vars_dict)
-#for seq in seqs:
-#    print(seq)
+                                    add_unknowns=False)
 
 build_svg_grid( dvars,
                 seqs,

@@ -22,8 +22,10 @@ def generate_integer_vars(
         size=len(vars_keys)
     )
 
-    return dict(zip(vars_keys, values))
-
+    return {
+        k: int(v)
+        for k, v in zip(vars_keys, values)
+    }
 
 
 def generate_integer_system(

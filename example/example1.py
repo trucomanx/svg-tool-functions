@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+import os
+import json
+
 from visual_linear_systems.integuer_equation import generate_integer_system
 from visual_linear_systems.integuer_equation import generate_integer_vars
 from visual_linear_systems.svg_grid          import build_svg_grid
@@ -12,8 +15,13 @@ def generate_visual_linear_system(  out_dir,
                                     var_max=3,
                                     coef_min=-2,
                                     coef_max=2,
-                                    seed=4
+                                    coef_mode="expanded",
+                                    seed=4,
+                                    prename="linear_system",
+                                    elem_width=100,
+                                    line_spacing=40
                                     ):
+    os.makedirs(out_dir, exist_ok=True)
 
     vars_dict = generate_integer_vars(  vars_keys, 
                                         var_min, 
@@ -26,15 +34,31 @@ def generate_visual_linear_system(  out_dir,
                                     seed=seed)
 
     seqs = transfor_system_to_format_1( res, 
-                                        coef_mode="expanded", 
+                                        coef_mode, 
                                         add_unknowns=False)
 
+    filename_linsys   = f"{prename}_{seed}.svg"
+    filename_unknowns = f"{prename}_{seed}_unknowns.svg"
+    filename_solution = f"{prename}_{seed}_solution.svg"
+    
+    path_linsys   = os.path.join(out_dir, filename_linsys)
+    path_unknowns = os.path.join(out_dir, filename_unknowns)
+    path_solution = os.path.join(out_dir, filename_solution)
+    
+    ####################
+    # SAVE LINEAR SYSTEM
+    ####################
+    
     build_svg_grid( dvars,
                     seqs,
-                    "data_unknowns.svg",
-                    elem_width=100,
-                    line_spacing=40  )
+                    path_linsys,
+                    elem_width,
+                    line_spacing  )
 
+    ###############
+    # SAVE UNKNOWNS
+    ###############
+    
     seq = []
     for i, var in enumerate(vars_keys):
         seq.extend([var, "=", "?"])
@@ -43,12 +67,33 @@ def generate_visual_linear_system(  out_dir,
      
     build_svg_grid( dvars,
                     [seq],
-                    "data_system.svg",
-                    elem_width=100,
-                    line_spacing=40  )
+                    path_unknowns,
+                    elem_width,
+                    line_spacing )
 
-    print(vars_dict)
-    return {"vars_dict": vars_dict}
+    ###############
+    # SAVE SOLUTION
+    ###############
+    
+    seq = []
+    for i, var in enumerate(vars_keys):
+        seq.extend([var, "=", str(vars_dict[var])])
+        if i < len(vars_keys) - 1:
+            seq.append("void")
+     
+    build_svg_grid( dvars,
+                    [seq],
+                    path_solution,
+                    elem_width,
+                    line_spacing )
+
+
+    return  {
+            "vars_dict": vars_dict,
+            "filename_linsys": filename_linsys,
+            "filename_unknowns": filename_unknowns,
+            "filename_solution": filename_solution
+            }
 
 ################################################################################
 
@@ -63,7 +108,7 @@ var_max=3
 
 coef_min=-2
 coef_max=2
-
+coef_mode="expanded"
 
 dvars = {
     "x": "../svgs/apple.svg",
@@ -86,11 +131,17 @@ dvars = {
     "void": "../svgs/void.svg"
 }
 
-generate_visual_linear_system(  vars_keys,
-                                dvars,
-                                var_min,
-                                var_max,
-                                coef_min,
-                                coef_max,
-                                seed
-                                )
+res = generate_visual_linear_system(out_dir,
+                                    vars_keys,
+                                    dvars,
+                                    var_min,
+                                    var_max,
+                                    coef_min,
+                                    coef_max,
+                                    coef_mode,
+                                    seed
+                                    )
+
+
+
+print(json.dumps(res, indent=2))

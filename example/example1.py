@@ -7,7 +7,7 @@ from visual_linear_systems.pipeline import generate_visual_linear_system
 
 out_dir="output"
 
-seed=4
+seed=1
 
 vars_keys = ["x", "y", "z"]
 var_min=1

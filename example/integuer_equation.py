@@ -4,7 +4,13 @@ import json
 import numpy as np
 
 
-def generate_integer_system(vars_dict, coef_min=0, coef_max=2, seed=None):
+def generate_integer_system(
+    vars_dict,
+    coef_min=-2,
+    coef_max=2,
+    seed=None,
+    max_tries=1000
+):
 
     rng = np.random.default_rng(seed)
 
@@ -13,17 +19,32 @@ def generate_integer_system(vars_dict, coef_min=0, coef_max=2, seed=None):
 
     n = len(vars_vector)
 
-    A = rng.integers(
-        low=coef_min,
-        high=coef_max + 1,
-        size=(n, n)
-    )
+    # =====================================
+    # GERA MATRIZ INVERTÍVEL
+    # =====================================
+
+    for _ in range(max_tries):
+
+        A = rng.integers(
+            low=coef_min,
+            high=coef_max + 1,
+            size=(n, n)
+        )
+
+        # rank completo
+        if np.linalg.matrix_rank(A) == n:
+            break
+
+    else:
+        raise ValueError(
+            "Não foi possível gerar matriz invertível"
+        )
 
     r = A @ vars_vector
 
     return {
-        "matrix_operator": A.tolist(),   # matriz -> lista de listas
-        "vector_result": r.tolist(),     # vetor -> lista
+        "matrix_operator": A.tolist(),
+        "vector_result": r.tolist(),
         "vars_values": vars_vector.tolist(),
         "vars_keys": vars_keys
     }

@@ -4,13 +4,35 @@ import json
 import numpy as np
 
 
+import numpy as np
+
+
+def generate_integer_vars(
+        vars_keys,
+        var_min=0,
+        var_max=10,
+        seed=None
+    ):
+
+    rng = np.random.default_rng(seed)
+
+    values = rng.integers(
+        low=var_min,
+        high=var_max + 1,
+        size=len(vars_keys)
+    )
+
+    return dict(zip(vars_keys, values))
+
+
+
 def generate_integer_system(
-    vars_dict,
-    coef_min=-2,
-    coef_max=2,
-    seed=None,
-    max_tries=1000
-):
+        vars_dict,
+        coef_min=-2,
+        coef_max=2,
+        seed=None,
+        max_tries=1000
+    ):
 
     rng = np.random.default_rng(seed)
 

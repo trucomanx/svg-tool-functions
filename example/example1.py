@@ -1,13 +1,68 @@
 #!/usr/bin/python3
 
 from visual_linear_systems.integuer_equation import generate_integer_system
+from visual_linear_systems.integuer_equation import generate_integer_vars
 from visual_linear_systems.svg_grid          import build_svg_grid
 from visual_linear_systems.system_formatter  import transfor_system_to_format_1
 
-seed=2
+def generate_visual_linear_system(  out_dir,
+                                    vars_keys,
+                                    dvars,
+                                    var_min=1,
+                                    var_max=3,
+                                    coef_min=-2,
+                                    coef_max=2,
+                                    seed=4
+                                    ):
 
-vars_dict = {"x": 2, "y": 1, "z": 3}
+    vars_dict = generate_integer_vars(  vars_keys, 
+                                        var_min, 
+                                        var_max, 
+                                        seed=seed)
 
+    res = generate_integer_system(  vars_dict, 
+                                    coef_min, 
+                                    coef_max, 
+                                    seed=seed)
+
+    seqs = transfor_system_to_format_1( res, 
+                                        coef_mode="expanded", 
+                                        add_unknowns=False)
+
+    build_svg_grid( dvars,
+                    seqs,
+                    "data_unknowns.svg",
+                    elem_width=100,
+                    line_spacing=40  )
+
+    seq = []
+    for i, var in enumerate(vars_keys):
+        seq.extend([var, "=", "?"])
+        if i < len(vars_keys) - 1:
+            seq.append("void")
+     
+    build_svg_grid( dvars,
+                    [seq],
+                    "data_system.svg",
+                    elem_width=100,
+                    line_spacing=40  )
+
+    print(vars_dict)
+    return {"vars_dict": vars_dict}
+
+################################################################################
+
+
+out_dir="output"
+
+seed=4
+
+vars_keys = ["x", "y", "z"]
+var_min=1
+var_max=3
+
+coef_min=-2
+coef_max=2
 
 
 dvars = {
@@ -31,20 +86,11 @@ dvars = {
     "void": "../svgs/void.svg"
 }
 
-res = generate_integer_system(vars_dict, -2, 2, seed=seed)
-
-seqs = transfor_system_to_format_1( res, 
-                                    coef_mode="expanded", 
-                                    add_unknowns=False)
-
-build_svg_grid( dvars,
-                seqs,
-                "data_unknowns.svg",
-                elem_width=100,
-                line_spacing=40  )
-                
-build_svg_grid( dvars,
-                [["x","=","?","void","y","=","?","void","z","=","?"]],
-                "data_system.svg",
-                elem_width=100,
-                line_spacing=40  )
+generate_visual_linear_system(  vars_keys,
+                                dvars,
+                                var_min,
+                                var_max,
+                                coef_min,
+                                coef_max,
+                                seed
+                                )

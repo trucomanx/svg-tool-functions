@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 
-import os
 import sys
-import json
-
-
 sys.path.append("../src")
+
+import os
+import json
 
 from visual_linear_systems.format_regular import generate_visual_linear_system
 

@@ -6,3 +6,6 @@
 /example/output.plain.svg
 /example/output.svg
 /example/output.vector.svg
+/example/__pycache__
+/example/data_system.svg
+/example/data_unknowns.svg

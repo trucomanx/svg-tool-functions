@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="50mm"
+   height="50mm"
+   viewBox="0 0 50 50"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.4.4 (1:1.4.4+202605061432+dcaf3e7d9e)"
+   sodipodi:docname="6.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.43024095"
+     inkscape:cx="-109.24111"
+     inkscape:cy="424.18092"
+     inkscape:window-width="1850"
+     inkscape:window-height="1016"
+     inkscape:window-x="70"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 39.900258,35.313374 c 2.512602,-3.038495 6.486019,-8.472727 6.486019,-11.92025 0,-3.505956 -3.973417,-7.479373 -7.771536,-7.479373 -3.213793,0 -7.946833,3.505956 -10.10884,7.128777 -2.980062,5.025204 -4.265579,14.491285 -8.648024,14.491285 -0.584326,0 -1.285517,-0.116866 -1.986708,-0.409029 -4.674608,-1.694545 -6.135423,-5.960125 -6.135423,-10.751598 0,-5.375799 1.110219,-10.634732 1.110219,-16.010532 0,-2.0451405 -0.759624,-3.9149836 -2.804765,-3.9149836 -1.4023819,0 -4.148714,1.5776802 -4.3824444,3.5059559 C 4.9575645,15.270993 3.9057777,20.646792 3.9057777,25.964158 c 0,11.569655 5.1420686,18.698432 14.9003123,19.049027 h 0.525894 c 2.571034,0.116865 4.674607,0.175298 7.011911,2.162006 0.876489,0.759624 1.752978,1.11022 2.571035,1.11022 1.752978,0 3.447523,-2.045141 3.447523,-5.200502 0,-0.525893 -0.05843,-1.051786 -0.05843,-1.519247 2.6879,-2.045141 5.60953,-3.856552 7.596238,-6.252288 z m -8.472727,-2.92163 c 0,-3.15536 4.03185,-9.582946 6.661317,-9.582946 0.350595,0 0.876489,0.23373 0.876489,0.701191 0,1.34395 -0.292163,2.863197 -1.227085,4.324012 -0.993354,1.519248 -4.148714,5.960125 -5.551097,5.960125 -0.584326,0 -0.759624,-0.818056 -0.759624,-1.402382 z"
+       id="text1"
+       style="font-size:58.4326px;line-height:1.25;font-family:'Because We Learn';-inkscape-font-specification:'Because We Learn, Normal';font-variant-ligatures:none;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;stroke-width:0.702251"
+       aria-label="6" />
+  </g>
+</svg>

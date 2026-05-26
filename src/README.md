@@ -1,4 +1,4 @@
-# visual-linear-systems-info
+# visual_linear_systems
 
 Functions to draw linear systems in a funny way
 

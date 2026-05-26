@@ -18,10 +18,10 @@ cd src
 
 
 ## ubuntu ##
-python3 -m PyInstaller --onefile --windowed --name visual_linear_systems --add-data "visual_linear_systems/data:data" --collect-all PyQt5  program_launcher.py
+python3 -m PyInstaller --onefile --windowed --name visual-linear-systems-info program_launcher.py
 
 ## windows ##
-python -m PyInstaller --onefile --windowed --name visual_linear_systems --add-data "visual_linear_systems/data;data" --collect-all PyQt5  program_launcher.py
+python -m PyInstaller --onefile --windowed --name visual-linear-systems-info program_launcher.py
 
 '''
 

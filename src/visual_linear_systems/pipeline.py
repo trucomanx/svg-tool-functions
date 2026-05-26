@@ -2,10 +2,10 @@
 
 import os
 
-from visual_linear_systems.integuer_equation import generate_integer_system
-from visual_linear_systems.integuer_equation import generate_integer_vars
-from visual_linear_systems.svg_grid          import build_svg_grid
-from visual_linear_systems.system_formatter  import transfor_system_to_format_1
+from visual_linear_systems.modules.integuer_equation import generate_integer_system
+from visual_linear_systems.modules.integuer_equation import generate_integer_vars
+from visual_linear_systems.modules.svg_grid          import build_svg_grid
+from visual_linear_systems.modules.system_formatter  import transfor_system_to_format_1
 
 def generate_visual_linear_system(  out_dir,
                                     vars_keys,

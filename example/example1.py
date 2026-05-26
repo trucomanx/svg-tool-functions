@@ -7,7 +7,7 @@ import json
 
 sys.path.append("../src")
 
-from visual_linear_systems.pipeline import generate_visual_linear_system
+from visual_linear_systems.format_regular import generate_visual_linear_system
 
 out_dir="output"
 
